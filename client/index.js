@@ -14,7 +14,7 @@ updateLatestBlock();
 function monitorCheck(block) {
     const alerts = [];
     for(const address of monitoring) {
-        matchingTx = block.transactions.filter((element) => {if(element.to === address) return element;});
+        const matchingTx = block.transactions.filter((element) => {if(element.to === address) return element;});
         for(const tx of matchingTx) {
             tx.timestamp = block.timestamp; // Grab the timestamp from the block object
             alerts.push(tx);
